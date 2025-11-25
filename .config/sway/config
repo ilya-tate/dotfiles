@@ -13,17 +13,19 @@ set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+# Terminal Emulator
 set $term alacritty
-# Your preferred application launcher
-set $menu wmenu-run
-# Your preferred browser
+# Application Launcher
+set $menu wofi --show=drun
+# Browser
 set $browse firefox
+# Bar
+set $bar waybar
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/wallpapers/cat.png fill
 #
 # Example configuration:
 #
@@ -167,6 +169,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+    gaps inner 10
+    gaps outer 10
+
 #
 # Scratchpad:
 #
@@ -234,7 +240,7 @@ bar {
     #    inactive_workspace #32323200 #32323200 #5c5c5c
     #}
 
-    swaybar_command waybar
+    swaybar_command $bar
 }
 
 include /etc/sway/config.d/*
