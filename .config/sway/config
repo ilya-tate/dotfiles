@@ -1,7 +1,5 @@
 # Default config for sway
 #
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
@@ -14,13 +12,19 @@ set $down j
 set $up k
 set $right l
 # Terminal Emulator
-set $term alacritty
+set $term kitty
 # Application Launcher
 set $menu wofi --show=drun
 # Browser
 set $browse firefox
 # Bar
 set $bar waybar
+# Colors
+set $green #7e9d86
+set $light_purple #aa87de
+set $dark_purple #67536c
+set $yellow #aa8800
+set $white #ffffff
 
 ### Output configuration
 #
@@ -32,6 +36,7 @@ output * bg ~/wallpapers/cat.png fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+output eDP-1 resolution 1920x1080 position 1920,0
 
 ### Idle configuration
 #
@@ -171,7 +176,7 @@ output * bg ~/wallpapers/cat.png fill
     bindsym $mod+a focus parent
 
     gaps inner 10
-    gaps outer 10
+    gaps outer 8
 
 #
 # Scratchpad:
@@ -242,5 +247,10 @@ bar {
 
     swaybar_command $bar
 }
+
+# Colors:
+			# BORDER		# BACKGROUND		# TEXT		# INDICATOR	#CHILD_BORDER
+client.focused		$light_purple		$dark_purple		$white		$light_purple	$light_purple
+#client.unfocused	$white			$white			$white		$white		$white
 
 include /etc/sway/config.d/*
